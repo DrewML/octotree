@@ -33,6 +33,14 @@ gulp.task('test', ['build'], (cb) => {
   ps.on('close', cb)
 })
 
+gulp.task('lint', () => {
+  return pipe(
+    './src/**/*',
+    $.jshint(),
+    $.jshint.reporter('default')
+  )
+})
+
 gulp.task('styles', () => {
   return pipe(
     './src/styles/octotree.less',
